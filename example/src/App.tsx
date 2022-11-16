@@ -1,31 +1,56 @@
-import * as React from 'react';
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ *
+ * @format
+ * @flow strict-local
+ */
 
-import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'react-native-haptik-rn-lib';
+ import React from 'react';
+ import type {Node} from 'react'; 
+ import {SafeAreaView, StyleSheet, View, Button} from 'react-native';
+ import {NativeModules} from 'react-native';
+ /* $FlowFixMe[missing-local-annot] The type annotation(s) required by Flow's
+  * LTI update could not be added via codemod */
 
-export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
+ /*Init all Data Here before starting Bot Activity*/
 
-  React.useEffect(() => {
-    multiply(3, 7).then(setResult);
-  }, []);
+ /*NativeModules.HaptikRnLib.setprimaryColor("#420420");
+ NativeModules.HaptikRnLib.setenableTypingSuggestion(false);
+ NativeModules.HaptikRnLib.sethideComposer(false);
+ NativeModules.HaptikRnLib.setnoHeader(true);
+ NativeModules.HaptikRnLib.setinitializeLanguage("en");
+ NativeModules.HaptikRnLib.setcomposerPlaceholder("Type Message....");
+ NativeModules.HaptikRnLib.setSignupData("XYZ","34345","uber");
 
-  return (
-    <View style={styles.container}>
-      <Text>Result: {result}</Text>
-    </View>
-  );
-}
+ NativeModules.HaptikRnLib.setLaunchMessage("this is from js side. HI");
+ NativeModules.HaptikRnLib.setSignupData("XYZ","34345","uber");*/
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  box: {
-    width: 60,
-    height: 60,
-    marginVertical: 20,
-  },
-});
+
+
+ const App: () => Node = () => {
+   const backgroundStyle = {
+     backgroundColor: 'white',
+   };
+ 
+   return (
+     <SafeAreaView style={backgroundStyle}>
+       <View style={styles.buttonContainer}>
+         <Button onPress={() => NativeModules.HaptikRnLib.HaptikSDKinit()} title="Start native activity" />
+       </View>
+     </SafeAreaView>
+   );
+ };
+ 
+ const styles = StyleSheet.create({
+   buttonContainer: {
+     height: '100%',
+     width: '50%',
+     justifyContent: 'space-between',
+     alignSelf: 'center',
+     marginTop: '50%',
+   },
+ });
+ 
+ export default App;
+
