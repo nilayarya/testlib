@@ -14,7 +14,7 @@ class HaptikRnLibModule(reactContext: ReactApplicationContext) :
   ReactContextBaseJavaModule(reactContext) {
 
   override fun getName(): String {
-    return NAME
+    return "HaptikRnLib"
   }
 
   // Example method
@@ -95,7 +95,7 @@ class HaptikRnLibModule(reactContext: ReactApplicationContext) :
       }
   }
 
-@ReactMethod
+  @ReactMethod
   fun HaptikSDKinit() {
     val context = reactApplicationContext
     HaptikSDK.init(context, initData)
@@ -111,9 +111,6 @@ class HaptikRnLibModule(reactContext: ReactApplicationContext) :
     HaptikSDK.logout(context)
   }
 
-  companion object {
-    const val NAME = "HaptikRnLib"
-  }
 }
 
 

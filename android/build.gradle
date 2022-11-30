@@ -60,17 +60,7 @@ android {
 }
 
 repositories {
-  mavenCentral()
-  google()
-
-  /*maven {
-    url "https://artifactory.hellohaptik.com/artifactory/libs-release-local"
-    credentials {
-        username "haptik-sdk-user"
-        password "Hx8c664x9@Qmd&wE"
-    }
-  }*/
-
+  
   def found = false
   def defaultDir = null
   def androidSourcesName = 'React Native sources'
